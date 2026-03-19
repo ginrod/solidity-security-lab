@@ -15,8 +15,9 @@ Each vulnerability is covered end-to-end:
 
 | ID | Title | Severity | Contract |
 |----|-------|----------|----------|
-| H-01 | Unauthorized Withdrawal — missing access control | High | [VulnerableBank.sol](contracts/VulnerableBank.sol) |
+| C-01 | Unauthorized Withdrawal — missing access control | Critical | [VulnerableBank.sol](contracts/VulnerableBank.sol) |
 | C-02 | Reentrancy — state updated after external call | Critical | [ReentrancyVault.sol](contracts/ReentrancyVault.sol) |
+| H-03 | Oracle Manipulation — spot price from AMM allows inflated borrowing | High | [VulnerableLending.sol](contracts/03%20-%20Oracle%20Manipulation/VulnerableLending.sol) |
 
 ---
 

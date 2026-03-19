@@ -1,7 +1,7 @@
-# [H-01] Unauthorized Withdrawal — Any caller can drain other users' funds
+# [C-01] Unauthorized Withdrawal — Any caller can drain other users' funds
 
 ## Severity
-High
+Critical
 
 ## Description
 The `withdraw` function accepts an arbitrary `_victim` address and sends
@@ -26,7 +26,10 @@ function withdraw(address _victim) public {
 
 ## Impact
 Complete loss of funds for any depositor. A single transaction drains
-any user's balance with no preconditions.
+any user's balance with no preconditions. All depositor addresses are
+public on-chain, so no privileged information is required to execute the attack.
+Historical example: Parity Wallet hack (2017) — $30M stolen due to
+missing access control on a wallet initialization function.
 
 ## Recommendation
 Remove the `_victim` parameter. Use `msg.sender` as both the balance
@@ -40,7 +43,18 @@ function withdraw() public {
 }
 ```
 
+Alternatively, use OpenZeppelin's `Ownable` for admin-only functions:
+
+```solidity
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract Bank is Ownable {
+    function emergencyWithdraw() public onlyOwner { ... }
+}
+```
+
 ## References
 - OWASP Smart Contract Top 10 (2025) — SC01 Improper Access Control: https://owasp.org/www-project-smart-contract-top-10/2025/en/src/SC01-access-control.html
 - OpenZeppelin Access Control Docs: https://docs.openzeppelin.com/contracts/5.x/api/access
 - SWC-105: Unprotected Ether Withdrawal (archived): https://swcregistry.io/docs/SWC-105
+- Parity Wallet Hack (2017): $30M lost via unprotected access control
