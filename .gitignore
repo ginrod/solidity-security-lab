@@ -14,3 +14,7 @@ states/
 .env
 .env.local
 *.pdf
+
+# Foundry build artifacts
+out/
+cache/
