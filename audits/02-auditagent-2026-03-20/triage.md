@@ -8,8 +8,8 @@ Total findings: 7 (High: 1, Medium: 1, Low: 3, Info: 1, Best Practices: 1)
 
 ## Finding 1 — High: No repayment, collateral withdrawal, or liquidation functions
 
-**AuditAgent verdict:** High Risk
-**Triage verdict:** Valid — out of scope for this PoC
+**Tool Severity:** High Risk
+**Triage Decision:** Valid — out of scope for this PoC
 
 `VulnerableLending` exposes only `depositCollateral()` and `borrow()`. There is
 no `repay()`, `withdrawCollateral()`, or `liquidate()`. Any ETH deposited is
@@ -25,8 +25,8 @@ real audit.
 
 ## Finding 2 — Medium: Cost-free spot price manipulation bypasses 80% LTV
 
-**AuditAgent verdict:** Medium Risk
-**Triage verdict:** Valid. Core vulnerability correctly detected without any context.
+**Tool Severity:** Medium Risk
+**Triage Decision:** Valid. Core vulnerability correctly detected without any context.
 
 `VulnerableLending.borrow()` reads the price from `MockPool.getPrice()` at call
 time. Because `MockPool.buyETH()` is public and requires no token transfer, an
@@ -52,8 +52,8 @@ risk.
 
 ## Finding 3 — Low: Precision loss in price calculation
 
-**AuditAgent verdict:** Low Risk
-**Triage verdict:** Partially valid — impact overstated.
+**Tool Severity:** Low Risk
+**Triage Decision:** Partially valid — impact overstated.
 
 `getPrice()` returns `usdReserve / ethReserve`. Both values are stored with 18
 decimal places (`ether` units), so the division cancels them out and returns an
@@ -71,8 +71,8 @@ be a genuine issue worth flagging.
 
 ## Finding 4 — Low: Magic Numbers Instead Of Constants
 
-**AuditAgent verdict:** Low Risk
-**Triage verdict:** Valid.
+**Tool Severity:** Low Risk
+**Triage Decision:** Valid.
 
 The LTV ratio (`80`) and denominator (`100`) are hardcoded literals in two
 separate places (`borrow()` and `getMaxBorrow()`). A named constant such as
@@ -83,8 +83,8 @@ inconsistent changes. Standard code quality finding, correct.
 
 ## Finding 5 — Low: Unoptimized Numeric Literal Format
 
-**AuditAgent verdict:** Low Risk
-**Triage verdict:** False positive / noise.
+**Tool Severity:** Low Risk
+**Triage Decision:** False positive / noise.
 
 AuditAgent flags `300_000 ether` and suggests scientific notation (`300e3 ether`).
 `300_000` is valid Solidity and is arguably more readable than `300e3` for large
@@ -95,8 +95,8 @@ correctness impact. Would not file in a real audit.
 
 ## Finding 6 — Info: Spot price oracle trivially manipulable
 
-**AuditAgent verdict:** Info
-**Triage verdict:** Duplicate of Finding 2 with consistent severity reasoning.
+**Tool Severity:** Info
+**Triage Decision:** Duplicate of Finding 2 with consistent severity reasoning.
 
 Same vulnerability as Finding 2. Downgraded to Info because `borrow()` does not
 transfer assets, limiting real economic impact in the given code. The severity
@@ -112,8 +112,8 @@ attack vectors.
 
 ## Finding 7 — Best Practices: Missing events for state-changing operations
 
-**AuditAgent verdict:** Best Practices
-**Triage verdict:** Valid.
+**Tool Severity:** Best Practices
+**Triage Decision:** Valid.
 
 Neither `depositCollateral()` nor `borrow()` emit events. Without events,
 off-chain monitoring systems cannot detect suspicious borrowing patterns (e.g.,
