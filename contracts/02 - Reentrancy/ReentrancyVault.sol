@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity 0.8.34;
 
 contract ReentrancyVault {
     mapping(address => uint256) public balances;
