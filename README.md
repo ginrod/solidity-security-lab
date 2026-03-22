@@ -5,10 +5,10 @@ Focus: identifying, exploiting, and reporting vulnerabilities in Solidity contra
 using the same format as real audit competitions (Code4rena / Immunefi).
 
 Each vulnerability is covered end-to-end:
-- Vulnerable contract written and deployed in Remix
-- Attack contract or exploit steps documented
-- Finding written in standard audit report format
-- AI-assisted scan via AuditAgent with manual triage
+- Vulnerable contract and attack contract written in Solidity
+- Exploit verified with a Foundry PoC test
+- Finding written in standard audit report format (Code4rena/Immunefi)
+- AuditAgent scan with AI-assisted triage
 
 ---
 
@@ -31,17 +31,18 @@ Each vulnerability is covered end-to-end:
 | #2 — 2026-03-20 | MockPool, VulnerableLending | 7 | 1 | [triage notes](audits/02-auditagent-2026-03-20/triage.md) |
 | #3 — 2026-03-22 | VulnerableDEX | 4 | 0 | [triage notes](audits/03-auditagent-2026-03-22/triage.md) |
 
-Scans run without context or comments to test unbiased detection.
-Front-running (H-04) was correctly identified at High severity. 0 false positives in scan #3.
+Scans run without context or comments to test unbiased detection and practice triage.
 
 ---
 
 ## Structure
 
 ```
-/contracts      — vulnerable contracts and attack contracts used in exercises
+/contracts      — vulnerable contracts and attack contracts, one folder per vulnerability
+/test           — Foundry PoC tests (.t.sol) that verify each exploit
 /findings       — reports in Code4rena/Immunefi format
 /audits         — AuditAgent scan reports and triage notes
+foundry.toml    — Foundry project configuration
 README.md
 ```
 
