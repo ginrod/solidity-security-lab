@@ -20,6 +20,7 @@ Each vulnerability is covered end-to-end:
 | C-02 | Reentrancy — state updated after external call | Critical | [ReentrancyVault.sol](contracts/02%20-%20Reentrancy/ReentrancyVault.sol) |
 | H-03 | Oracle Manipulation — spot price from AMM allows inflated borrowing | High | [VulnerableLending.sol](contracts/03%20-%20Oracle%20Manipulation/VulnerableLending.sol) |
 | H-04 | Front-Running — missing slippage protection enables sandwich attacks | High | [VulnerableDEX.sol](contracts/04%20-%20Front-Running/VulnerableDEX.sol) |
+| H-05 | Integer Underflow — unchecked arithmetic inflates balance to 2^256-1, enabling full fund drainage | High | [VulnerableToken.sol](contracts/05%20-%20Integer%20Overflow%20and%20Underflow/VulnerableToken.sol) |
 
 ---
 
