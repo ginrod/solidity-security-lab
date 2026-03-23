@@ -86,4 +86,4 @@ balances[msg.sender] = balances[msg.sender].sub(amount);
 - OWASP Smart Contract Top 10 (2025) — SC09 Integer Overflow and Underflow: https://owasp.org/www-project-smart-contract-top-10/
 - SWC-101: Integer Overflow and Underflow: https://swcregistry.io/docs/SWC-101
 - BatchOverflow vulnerability (2018): https://peckshield.medium.com/alert-new-batchoverflow-bug-in-multiple-erc20-smart-contracts-cve-2018-10299-511067db6536
-- OpenZeppelin SafeMath: https://docs.openzeppelin.com/contracts/2.x/api/math
+- OpenZeppelin SafeMath: https://docs.openzeppelin.com/contracts/4.x/api/utils#SafeMath
