@@ -32,6 +32,7 @@ Each vulnerability is covered end-to-end:
 | #2 — 2026-03-20 | MockPool, VulnerableLending | 7 | 1 | [triage notes](audits/02-auditagent-2026-03-20/triage.md) |
 | #3 — 2026-03-22 | VulnerableDEX | 4 | 0 | [triage notes](audits/03-auditagent-2026-03-22/triage.md) |
 | #4 — 2026-03-23 | VulnerableToken | 4 | 0 | [triage notes](audits/04-auditagent-2026-03-23/triage.md) |
+| #5 — 2026-03-24 | MultiSigTimelock | 3 | 0 | [triage notes](audits/05-auditagent-2026-03-24/triage.md) |
 
 Scans run without context or comments to test unbiased detection and practice triage.
 
