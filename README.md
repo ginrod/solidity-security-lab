@@ -45,6 +45,8 @@ Scans run without context or comments to test unbiased detection and practice tr
 /test           — Foundry PoC tests (.t.sol) that verify each exploit
 /findings       — reports in Code4rena/Immunefi format
 /audits         — AuditAgent scan reports and triage notes
+/contests       — real competition contracts reviewed for practice
+  /Cyfrin-CodeHawks/First-Flights/  — CodeHawks First Flight contests
 foundry.toml    — Foundry project configuration
 README.md
 ```
